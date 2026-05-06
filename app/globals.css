@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #0a0c0f;
+  --surface: #111318;
+  --border: #1e2028;
+  --green: #00e5a0;
+  --danger: #ff4d6d;
+  --text: #e8eaf0;
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Wallet adapter overrides */
+.wallet-adapter-button {
+  background-color: var(--green) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+  font-size: 14px !important;
+  padding: 0 16px !important;
+}
+.wallet-adapter-button-trigger { background-color: transparent !important; border: 1px solid var(--border) !important; color: var(--text) !important; }
+.wallet-adapter-modal-wrapper { background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: 20px !important; }
+.wallet-adapter-modal-title { color: var(--text) !important; }
+.wallet-adapter-modal-list li { color: var(--text) !important; }
+
+/* Touch targets */
+button, a[role="button"] { min-height: 48px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Animations */
+.animate-fade-in { animation: fadeIn 0.4s ease-out; }
+.animate-slide-up { animation: slideUp 0.3s ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--bg);
+  color: #F9FAFB;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Wallet adapter overrides */
+.wallet-adapter-button {
+  background-color: var(--green) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+  font-size: 15px !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 20px !important;
+}
+
+.wallet-adapter-modal-title {
+  color: #F9FAFB !important;
+}
+
+/* Touch targets minimum 48px */
+button, a, input, select {
+  min-height: 48px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
