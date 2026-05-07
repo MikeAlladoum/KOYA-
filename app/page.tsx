@@ -37,17 +37,9 @@ export default function HomePage() {
             Send USDC to family in West Africa in seconds.
             Local agents handle the cash — fees capped at <span className="text-koya-text font-semibold">2% max</span>.
           </p>
-          <p className="text-koya-muted/60 text-xs italic">"{KOYA_MEANING}"</p>
+
         </div>
 
-        {/* Fee comparison */}
-        <div className="bg-koya-surface border border-koya-border rounded-2xl p-4">
-          <p className="text-koya-muted text-xs uppercase tracking-wider mb-3">Sending $200</p>
-          <div className="space-y-3">
-            <FeeRow provider="Western Union" feeLabel="~10% = $20.00" received="$180" bad />
-            <FeeRow provider="Koya" feeLabel="<0.01$ network fee" received="$196+" good />
-          </div>
-        </div>
 
         {/* CTAs */}
         <div className="space-y-3">
