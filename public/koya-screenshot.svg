@@ -1,0 +1,63 @@
+<svg width="390" height="780" viewBox="0 0 390 780" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone background -->
+  <rect width="390" height="780" rx="40" fill="#0a0c0f"/>
+  <!-- Header -->
+  <rect x="0" y="0" width="390" height="70" rx="0" fill="#111318"/>
+  <rect x="0" y="0" width="390" height="40" fill="#111318"/>
+  <!-- Logo -->
+  <rect x="20" y="18" width="36" height="36" rx="8" fill="#00e5a0"/>
+  <text x="38" y="43" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#0a0c0f" text-anchor="middle">K</text>
+  <text x="65" y="43" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#e8eaf0">Koya</text>
+  <!-- Connect wallet button -->
+  <rect x="270" y="16" width="106" height="36" rx="10" fill="#00e5a0" opacity="0.15"/>
+  <text x="323" y="39" font-family="Arial, sans-serif" font-size="13" fill="#00e5a0" text-anchor="middle">Connect Wallet</text>
+
+  <!-- Badge -->
+  <rect x="20" y="90" width="180" height="28" rx="14" fill="#111318"/>
+  <circle cx="36" cy="104" r="5" fill="#00e5a0"/>
+  <text x="48" y="109" font-family="Arial, sans-serif" font-size="12" fill="#00e5a0">Live on Solana Devnet</text>
+
+  <!-- Title -->
+  <text x="20" y="160" font-family="Arial Black, sans-serif" font-size="34" font-weight="900" fill="#e8eaf0">Send money</text>
+  <text x="20" y="200" font-family="Arial Black, sans-serif" font-size="34" font-weight="900" fill="#e8eaf0">home. Not fees.</text>
+  <text x="20" y="236" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Send USDC in seconds. Local agents</text>
+  <text x="20" y="256" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">handle cash — fees capped at 2%.</text>
+
+  <!-- Fee comparison box -->
+  <rect x="20" y="280" width="350" height="110" rx="16" fill="#111318"/>
+  <text x="36" y="304" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">SENDING $200</text>
+  <!-- Western Union row -->
+  <circle cx="36" cy="328" r="5" fill="#ff4d6d"/>
+  <text x="50" y="333" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Western Union</text>
+  <text x="260" y="333" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">~10% = $20</text>
+  <text x="340" y="333" font-family="Arial Black, sans-serif" font-size="13" fill="#ff4d6d" text-anchor="end">$180</text>
+  <!-- Koya row -->
+  <circle cx="36" cy="362" r="5" fill="#00e5a0"/>
+  <text x="50" y="367" font-family="Arial Black, sans-serif" font-size="14" fill="#e8eaf0">Koya</text>
+  <text x="200" y="367" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">&lt;0.01$ fee</text>
+  <text x="340" y="367" font-family="Arial Black, sans-serif" font-size="13" fill="#00e5a0" text-anchor="end">$196+</text>
+
+  <!-- Send button -->
+  <rect x="20" y="410" width="350" height="56" rx="16" fill="#00e5a0"/>
+  <text x="195" y="446" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#0a0c0f" text-anchor="middle">💸 Send money</text>
+
+  <!-- Agent button -->
+  <rect x="20" y="478" width="350" height="56" rx="16" fill="#111318"/>
+  <text x="195" y="514" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#e8eaf0" text-anchor="middle">🏪 I'm an agent</text>
+
+  <!-- Stats -->
+  <rect x="20" y="560" width="106" height="80" rx="16" fill="#111318"/>
+  <text x="73" y="600" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" fill="#00e5a0" text-anchor="middle">&lt;1s</text>
+  <text x="73" y="624" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Settlement</text>
+
+  <rect x="142" y="560" width="106" height="80" rx="16" fill="#111318"/>
+  <text x="195" y="600" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" fill="#00e5a0" text-anchor="middle">≤2%</text>
+  <text x="195" y="624" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Max fees</text>
+
+  <rect x="264" y="560" width="106" height="80" rx="16" fill="#111318"/>
+  <text x="317" y="600" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" fill="#00e5a0" text-anchor="middle">6</text>
+  <text x="317" y="624" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Countries</text>
+
+  <!-- Footer -->
+  <text x="195" y="730" font-family="Arial, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">Built on Solana · 🇹🇬 Made in Lomé, Togo</text>
+</svg>

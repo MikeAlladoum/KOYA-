@@ -1,0 +1,30 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="400" fill="#0a0c0f"/>
+  <!-- Subtle grid -->
+  <line x1="0" y1="200" x2="1200" y2="200" stroke="#1e2028" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="400" stroke="#1e2028" stroke-width="1"/>
+  <!-- Glow circle -->
+  <circle cx="180" cy="200" r="160" fill="#00e5a0" opacity="0.04"/>
+  <!-- Logo box -->
+  <rect x="60" y="130" width="140" height="140" rx="28" fill="#111318"/>
+  <text x="130" y="228" font-family="Arial Black, sans-serif" font-size="100" font-weight="900" fill="#00e5a0" text-anchor="middle">K</text>
+  <!-- App name -->
+  <text x="240" y="195" font-family="Arial Black, sans-serif" font-size="72" font-weight="900" fill="#e8eaf0">KOYA</text>
+  <!-- Tagline -->
+  <text x="242" y="248" font-family="Arial, sans-serif" font-size="26" fill="#6b7280">Send money home. Not fees.</text>
+  <!-- Divider -->
+  <line x1="240" y1="268" x2="720" y2="268" stroke="#1e2028" stroke-width="1.5"/>
+  <!-- Stats -->
+  <text x="280" y="318" font-family="Arial Black, sans-serif" font-size="32" font-weight="900" fill="#00e5a0" text-anchor="middle">&lt;1s</text>
+  <text x="280" y="346" font-family="Arial, sans-serif" font-size="16" fill="#6b7280" text-anchor="middle">Settlement</text>
+  <text x="430" y="318" font-family="Arial Black, sans-serif" font-size="32" font-weight="900" fill="#00e5a0" text-anchor="middle">≤2%</text>
+  <text x="430" y="346" font-family="Arial, sans-serif" font-size="16" fill="#6b7280" text-anchor="middle">Max fees</text>
+  <text x="580" y="318" font-family="Arial Black, sans-serif" font-size="32" font-weight="900" fill="#00e5a0" text-anchor="middle">6</text>
+  <text x="580" y="346" font-family="Arial, sans-serif" font-size="16" fill="#6b7280" text-anchor="middle">Countries</text>
+  <!-- Right side — Solana badge -->
+  <rect x="880" y="155" width="260" height="90" rx="20" fill="#111318"/>
+  <text x="1010" y="208" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle">Built on Solana Devnet</text>
+  <!-- Made in Togo -->
+  <text x="1010" y="290" font-family="Arial, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">🇹🇬 Made in Lomé, Togo</text>
+</svg>
