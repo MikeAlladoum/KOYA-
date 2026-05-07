@@ -7,8 +7,8 @@ export const metadata = {
   description: 'Plateforme de transfert USDC sur Solana pour la diaspora africaine',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   icons: {
-    icon: '/logo.svg',
-    apple: '/logo.svg',
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 };
 
