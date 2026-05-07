@@ -80,7 +80,7 @@ export default function AgentPanel() {
     <div className="space-y-4">
       {useMock && (
         <div className="bg-koya-surface border border-koya-border rounded-xl p-3">
-          <span className="text-koya-muted text-xs">Demo mode — showing mock orders</span>
+          <span className="text-koya-muted text-xs">Demo mode - showing mock orders</span>
         </div>
       )}
 
