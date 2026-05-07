@@ -1,5 +1,11 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="7" fill="#111318"/>
-  <rect x="1" y="1" width="30" height="30" rx="6" fill="#00e5a0"/>
-  <text x="16" y="24" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#0a0c0f" text-anchor="middle">K</text>
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="#00e5a0"/>
+  <!-- K shape drawn with paths (no text) -->
+  <!-- Left vertical bar -->
+  <rect x="7" y="6" width="4" height="20" rx="2" fill="#0a0c0f"/>
+  <!-- Top-right diagonal -->
+  <polygon points="11,16 22,6 18,6 7,16" fill="#0a0c0f"/>
+  <!-- Bottom-right diagonal -->
+  <polygon points="11,16 22,26 18,26 7,16" fill="#0a0c0f"/>
 </svg>
