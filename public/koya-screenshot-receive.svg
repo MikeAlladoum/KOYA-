@@ -1,0 +1,56 @@
+<svg width="390" height="780" viewBox="0 0 390 780" xmlns="http://www.w3.org/2000/svg">
+  <rect width="390" height="780" rx="40" fill="#0a0c0f"/>
+  <!-- Header -->
+  <rect x="0" y="0" width="390" height="70" fill="#111318"/>
+  <rect x="20" y="18" width="36" height="36" rx="8" fill="#1e2028"/>
+  <text x="38" y="41" font-family="Arial, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">←</text>
+  <text x="120" y="43" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="#e8eaf0">Pick up cash</text>
+
+  <!-- Amount card -->
+  <rect x="20" y="90" width="350" height="130" rx="20" fill="#111318"/>
+  <text x="195" y="125" font-family="Arial, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">Amount to receive</text>
+  <text x="195" y="175" font-family="Arial Black, sans-serif" font-size="48" font-weight="900" fill="#00e5a0" text-anchor="middle">$197.00</text>
+  <text x="195" y="205" font-family="Arial, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">🇹🇬 Togo · +228 90 12 34 56</text>
+
+  <!-- Agent info -->
+  <rect x="20" y="240" width="350" height="70" rx="14" fill="#111318"/>
+  <text x="36" y="266" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">COLLECT AT</text>
+  <text x="36" y="290" font-family="Arial Black, sans-serif" font-size="14" font-weight="700" fill="#e8eaf0">Kodjo — Akodessewa Market</text>
+  <text x="310" y="290" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Lomé</text>
+
+  <!-- Code input -->
+  <text x="20" y="345" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">Enter 6-digit pickup code</text>
+  <rect x="20" y="354" width="350" height="64" rx="14" fill="#111318"/>
+  <rect x="20" y="354" width="350" height="64" rx="14" fill="none" stroke="#00e5a0" stroke-width="1.5"/>
+  <!-- 6 digit boxes -->
+  <rect x="36" y="368" width="44" height="36" rx="8" fill="#1e2028"/>
+  <text x="58" y="392" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#e8eaf0" text-anchor="middle">8</text>
+  <rect x="90" y="368" width="44" height="36" rx="8" fill="#1e2028"/>
+  <text x="112" y="392" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#e8eaf0" text-anchor="middle">4</text>
+  <rect x="144" y="368" width="44" height="36" rx="8" fill="#1e2028"/>
+  <text x="166" y="392" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#e8eaf0" text-anchor="middle">7</text>
+  <rect x="198" y="368" width="44" height="36" rx="8" fill="#1e2028"/>
+  <text x="220" y="392" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#e8eaf0" text-anchor="middle">2</text>
+  <rect x="252" y="368" width="44" height="36" rx="8" fill="#1e2028"/>
+  <text x="274" y="392" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#e8eaf0" text-anchor="middle">9</text>
+  <rect x="306" y="368" width="44" height="36" rx="8" fill="#1e2028"/>
+  <text x="328" y="392" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#e8eaf0" text-anchor="middle">1</text>
+
+  <!-- Confirm button -->
+  <rect x="20" y="444" width="350" height="56" rx="16" fill="#00e5a0"/>
+  <text x="195" y="480" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#0a0c0f" text-anchor="middle">✓ Confirm pickup</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="524" x2="370" y2="524" stroke="#1e2028" stroke-width="1"/>
+
+  <!-- Success preview -->
+  <rect x="20" y="544" width="350" height="150" rx="20" fill="#111318"/>
+  <rect x="20" y="544" width="350" height="150" rx="20" fill="none" stroke="#00e5a0" stroke-width="1" opacity="0.3"/>
+  <text x="195" y="590" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">✅</text>
+  <text x="195" y="628" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#e8eaf0" text-anchor="middle">Cash received!</text>
+  <text x="195" y="652" font-family="Arial, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">$197.00 USDC released to agent</text>
+  <text x="195" y="678" font-family="Arial Black, sans-serif" font-size="20" font-weight="900" fill="#00e5a0" text-anchor="middle">$197.00</text>
+
+  <!-- Footer -->
+  <text x="195" y="750" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Code expires in 24h · Powered by Solana</text>
+</svg>

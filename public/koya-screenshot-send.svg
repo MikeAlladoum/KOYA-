@@ -1,0 +1,54 @@
+<svg width="390" height="780" viewBox="0 0 390 780" xmlns="http://www.w3.org/2000/svg">
+  <rect width="390" height="780" rx="40" fill="#0a0c0f"/>
+  <!-- Header -->
+  <rect x="0" y="0" width="390" height="70" fill="#111318"/>
+  <rect x="20" y="18" width="36" height="36" rx="8" fill="#1e2028"/>
+  <text x="38" y="41" font-family="Arial, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">←</text>
+  <text x="105" y="43" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="#e8eaf0">Send money</text>
+  <rect x="270" y="16" width="106" height="36" rx="10" fill="#00e5a0" opacity="0.15"/>
+  <text x="323" y="39" font-family="Arial, sans-serif" font-size="12" fill="#00e5a0" text-anchor="middle">Connect Wallet</text>
+
+  <!-- Amount label -->
+  <text x="20" y="105" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">Amount (USDC)</text>
+  <!-- Amount input -->
+  <rect x="20" y="114" width="350" height="58" rx="14" fill="#111318"/>
+  <text x="36" y="150" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#e8eaf0">200</text>
+  <text x="340" y="150" font-family="Arial, sans-serif" font-size="14" fill="#6b7280" text-anchor="end">USDC</text>
+
+  <!-- Recipient label -->
+  <text x="20" y="202" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">Recipient phone</text>
+  <rect x="20" y="210" width="350" height="52" rx="14" fill="#111318"/>
+  <text x="36" y="241" font-family="Arial, sans-serif" font-size="15" fill="#e8eaf0">+228 90 12 34 56</text>
+
+  <!-- Country label -->
+  <text x="20" y="292" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">Country</text>
+  <rect x="20" y="300" width="350" height="52" rx="14" fill="#111318"/>
+  <text x="36" y="331" font-family="Arial, sans-serif" font-size="15" fill="#e8eaf0">🇹🇬 Togo</text>
+
+  <!-- Agent label -->
+  <text x="20" y="382" font-family="Arial, sans-serif" font-size="13" fill="#6b7280">Select agent</text>
+  <rect x="20" y="390" width="350" height="70" rx="14" fill="#111318"/>
+  <rect x="20" y="390" width="350" height="70" rx="14" fill="none" stroke="#00e5a0" stroke-width="1.5"/>
+  <text x="36" y="420" font-family="Arial Black, sans-serif" font-size="14" font-weight="700" fill="#e8eaf0">Kodjo — Akodessewa Market</text>
+  <text x="36" y="442" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Lomé, Akodessewa · 1.5% fee</text>
+
+  <!-- Fee breakdown -->
+  <rect x="20" y="480" width="350" height="90" rx="14" fill="#111318"/>
+  <text x="36" y="506" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">FEE BREAKDOWN</text>
+  <text x="36" y="530" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Network fee</text>
+  <text x="354" y="530" font-family="Arial, sans-serif" font-size="14" fill="#6b7280" text-anchor="end">&lt;$0.01</text>
+  <text x="36" y="554" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Agent fee (1.5%)</text>
+  <text x="354" y="554" font-family="Arial, sans-serif" font-size="14" fill="#e8eaf0" text-anchor="end">$3.00</text>
+
+  <!-- Recipient receives -->
+  <rect x="20" y="588" width="350" height="56" rx="14" fill="#00e5a0" opacity="0.08"/>
+  <text x="36" y="620" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Recipient receives</text>
+  <text x="354" y="620" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#00e5a0" text-anchor="end">$197.00</text>
+
+  <!-- Send button -->
+  <rect x="20" y="662" width="350" height="56" rx="16" fill="#00e5a0"/>
+  <text x="195" y="698" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#0a0c0f" text-anchor="middle">💸 Send $200 USDC</text>
+
+  <!-- Footer -->
+  <text x="195" y="750" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Secured by Solana escrow · Funds locked until pickup</text>
+</svg>
