@@ -80,7 +80,30 @@ export default function SendPage() {
             </Link>
           </>
         ) : connected ? (
-          <SendForm onSuccess={handleSuccess} />
+          <>
+            <SendForm onSuccess={handleSuccess} />
+            <div className="border-t border-koya-border pt-4 text-center">
+              <p className="text-koya-muted text-xs mb-2">No USDC devnet? Try the demo:</p>
+              <button
+                onClick={() => {
+                  const { createEscrowOrder } = require('@/lib/escrow');
+                  const order = createEscrowOrder({
+                    txSignature: 'demo_' + Date.now(),
+                    sender: 'DemoWalletXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+                    recipientPhone: '+228 90 12 34 56',
+                    recipientCountry: 'TG',
+                    amount: 200,
+                    fee: 3,
+                    agentId: 'agent_1',
+                  });
+                  setCompletedOrder(order);
+                }}
+                className="text-koya-green text-sm font-medium underline"
+              >
+                Try demo →
+              </button>
+            </div>
+          </>
         ) : null}
       </div>
     </main>
