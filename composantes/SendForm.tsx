@@ -11,12 +11,13 @@ import FeeComparison from './FeeComparison';
 
 interface SendFormProps {
   onSuccess: (orderId: string) => void;
+  demoMode?: boolean;
 }
 
 // Demo escrow wallet — replace with deployed program PDA in production
 const KOYA_ESCROW_WALLET = 'GkoyaEscrow1111111111111111111111111111111';
 
-export default function SendForm({ onSuccess }: SendFormProps) {
+export default function SendForm({ onSuccess, demoMode = false }: SendFormProps) {
   const { publicKey, sendTransaction } = useWallet();
   const [amount, setAmount] = useState('');
   const [phone, setPhone] = useState('');
@@ -33,33 +34,38 @@ export default function SendForm({ onSuccess }: SendFormProps) {
   const selectedCountry = SUPPORTED_COUNTRIES.find((c) => c.code === country)!;
 
   const handleSend = async () => {
-    if (!publicKey) return setError('Connect your wallet first');
     setError('');
     setLoading(true);
 
     try {
-      const balance = await getUsdcBalance(publicKey);
-      if (balance < numAmount) {
-        setError(`Insufficient balance — you have ${formatUsdc(balance)} USDC`);
-        return;
-      }
-
       let sig: string;
-      try {
-        const { Connection } = await import('@solana/web3.js');
-        const connection = new Connection(SOLANA_RPC, 'confirmed');
-        const escrowPubkey = new PublicKey(KOYA_ESCROW_WALLET);
-        const tx = await buildUsdcTransfer(publicKey, escrowPubkey, numAmount);
-        sig = await sendTransaction(tx, connection);
-        await connection.confirmTransaction(sig, 'confirmed');
-      } catch {
-        // Devnet can be slow — use mock sig for demo
+
+      if (demoMode) {
+        // Demo mode: skip blockchain, create mock order directly
         sig = 'demo_' + Math.random().toString(36).slice(2, 12);
+      } else {
+        if (!publicKey) return setError('Connect your wallet first');
+        const balance = await getUsdcBalance(publicKey);
+        if (balance < numAmount) {
+          setError(`Insufficient balance — you have ${formatUsdc(balance)} USDC`);
+          setLoading(false);
+          return;
+        }
+        try {
+          const { Connection } = await import('@solana/web3.js');
+          const connection = new Connection(SOLANA_RPC, 'confirmed');
+          const escrowPubkey = new PublicKey(KOYA_ESCROW_WALLET);
+          const tx = await buildUsdcTransfer(publicKey!, escrowPubkey, numAmount);
+          sig = await sendTransaction(tx, connection);
+          await connection.confirmTransaction(sig, 'confirmed');
+        } catch {
+          sig = 'demo_' + Math.random().toString(36).slice(2, 12);
+        }
       }
 
       const order = createEscrowOrder({
         txSignature: sig,
-        sender: publicKey.toString(),
+        sender: demoMode ? 'DemoWallet' : (publicKey?.toString() ?? 'unknown'),
         recipientPhone: selectedCountry.prefix + ' ' + phone,
         recipientCountry: country,
         amount: numAmount,
@@ -119,6 +125,15 @@ export default function SendForm({ onSuccess }: SendFormProps) {
 
   return (
     <div className="space-y-4 animate-slide-up">
+      {demoMode && (
+        <div className="flex items-center gap-2 bg-koya-green/10 border border-koya-green/30 rounded-xl px-4 py-3">
+          <span className="text-koya-green text-lg">🎭</span>
+          <div>
+            <p className="text-koya-green text-sm font-semibold">Demo mode</p>
+            <p className="text-koya-muted text-xs">No real USDC needed — fill the form and send</p>
+          </div>
+        </div>
+      )}
       {/* Amount */}
       <div className="bg-koya-surface border border-koya-border rounded-2xl p-4 space-y-2">
         <label className="text-koya-muted text-xs uppercase tracking-wider">Amount (USDC)</label>

@@ -6,11 +6,12 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletButton } from '@/composantes/WalletButton';
 import SendForm from '@/composantes/SendForm';
 import QRDisplay from '@/composantes/QRDisplay';
-import { getOrder, createEscrowOrder, EscrowOrder } from '@/lib/escrow';
+import { getOrder, EscrowOrder } from '@/lib/escrow';
 
 export default function SendPage() {
   const { connected } = useWallet();
   const [completedOrder, setCompletedOrder] = useState<EscrowOrder | null>(null);
+  const [demoMode, setDemoMode] = useState(false);
 
   const handleSuccess = (orderId: string) => {
     const order = getOrder(orderId);
@@ -33,7 +34,7 @@ export default function SendPage() {
       </header>
 
       <div className="flex-1 px-5 pb-8 space-y-4 animate-slide-up">
-        {!connected && !completedOrder && (
+        {!connected && !completedOrder && !demoMode && (
           <div className="bg-koya-surface border border-koya-border rounded-2xl p-6 text-center space-y-4">
             <p className="text-4xl">👛</p>
             <div>
@@ -46,20 +47,9 @@ export default function SendPage() {
               <WalletButton />
             </div>
             <div className="border-t border-koya-border pt-4">
-              <p className="text-koya-muted text-xs mb-3">No wallet? Preview the demo:</p>
+              <p className="text-koya-muted text-xs mb-3">No wallet? Try the demo:</p>
               <button
-                onClick={() => {
-                  const order = createEscrowOrder({
-                    txSignature: 'demo_' + Date.now(),
-                    sender: 'DemoWalletXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-                    recipientPhone: '+228 90 12 34 56',
-                    recipientCountry: 'TG',
-                    amount: 200,
-                    fee: 3,
-                    agentId: 'agent_1',
-                  });
-                  setCompletedOrder(order);
-                }}
+                onClick={() => setDemoMode(true)}
                 className="text-koya-green text-sm font-medium underline"
               >
                 Try demo →
@@ -78,29 +68,20 @@ export default function SendPage() {
               ← Back home
             </Link>
           </>
-        ) : connected ? (
+        ) : (connected || demoMode) ? (
           <>
-            <SendForm onSuccess={handleSuccess} />
-            <div className="border-t border-koya-border pt-4 text-center">
-              <p className="text-koya-muted text-xs mb-2">No USDC devnet? Try the demo:</p>
-              <button
-                onClick={() => {
-                  const order = createEscrowOrder({
-                    txSignature: 'demo_' + Date.now(),
-                    sender: 'DemoWalletXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-                    recipientPhone: '+228 90 12 34 56',
-                    recipientCountry: 'TG',
-                    amount: 200,
-                    fee: 3,
-                    agentId: 'agent_1',
-                  });
-                  setCompletedOrder(order);
-                }}
-                className="text-koya-green text-sm font-medium underline"
-              >
-                Try demo →
-              </button>
-            </div>
+            <SendForm onSuccess={handleSuccess} demoMode={demoMode} />
+            {!demoMode && (
+              <div className="border-t border-koya-border pt-4 text-center">
+                <p className="text-koya-muted text-xs mb-2">No USDC devnet? Try the demo:</p>
+                <button
+                  onClick={() => setDemoMode(true)}
+                  className="text-koya-green text-sm font-medium underline"
+                >
+                  Try demo →
+                </button>
+              </div>
+            )}
           </>
         ) : null}
       </div>
