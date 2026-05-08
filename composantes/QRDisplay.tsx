@@ -97,6 +97,16 @@ export default function QRDisplay({ order }: QRDisplayProps) {
           Max agent fee: 2% — enforced by Solana smart contract. No agent can charge more.
         </p>
       </div>
+
+      {/* Demo shortcut */}
+      {order.txSignature?.startsWith('demo_') && (
+        <a
+          href={webUrl}
+          className="flex items-center justify-center gap-2 w-full bg-koya-surface border border-koya-green/40 text-koya-green font-semibold rounded-2xl h-12 text-sm hover:bg-koya-green/10 transition-all"
+        >
+          🎭 Simulate cash pickup →
+        </a>
+      )}
     </div>
   );
 }
