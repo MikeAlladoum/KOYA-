@@ -6,7 +6,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletButton } from '@/composantes/WalletButton';
 import SendForm from '@/composantes/SendForm';
 import QRDisplay from '@/composantes/QRDisplay';
-import { getOrder, EscrowOrder } from '@/lib/escrow';
+import { getOrder, createEscrowOrder, EscrowOrder } from '@/lib/escrow';
 
 export default function SendPage() {
   const { connected } = useWallet();
@@ -49,7 +49,6 @@ export default function SendPage() {
               <p className="text-koya-muted text-xs mb-3">No wallet? Preview the demo:</p>
               <button
                 onClick={() => {
-                  const { createEscrowOrder } = require('@/lib/escrow');
                   const order = createEscrowOrder({
                     txSignature: 'demo_' + Date.now(),
                     sender: 'DemoWalletXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
@@ -86,7 +85,6 @@ export default function SendPage() {
               <p className="text-koya-muted text-xs mb-2">No USDC devnet? Try the demo:</p>
               <button
                 onClick={() => {
-                  const { createEscrowOrder } = require('@/lib/escrow');
                   const order = createEscrowOrder({
                     txSignature: 'demo_' + Date.now(),
                     sender: 'DemoWalletXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
