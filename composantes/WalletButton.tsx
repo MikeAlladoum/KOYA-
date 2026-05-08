@@ -7,18 +7,13 @@ import {
   useWallet,
 } from '@solana/wallet-adapter-react';
 import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import {
-  PhantomWalletAdapter,
-} from '@solana/wallet-adapter-wallets';
 import { RPC_URL } from '@/lib/constants';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 export function WalletContextProvider({ children }: { children: ReactNode }) {
-  const wallets = useMemo(
-    () => [new PhantomWalletAdapter()],
-    []
-  );
+  // Empty array = auto-detect all installed wallets (Wallet Standard)
+  const wallets = useMemo(() => [], []);
 
   return (
     <ConnectionProvider endpoint={RPC_URL}>

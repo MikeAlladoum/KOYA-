@@ -40,7 +40,7 @@ export default function SendPage() {
             <div>
               <p className="text-koya-text font-semibold">Connect your wallet to send</p>
               <p className="text-koya-muted text-sm mt-1">
-                Use Phantom or Backpack — works on mobile too
+                Connect any Solana wallet — Phantom, Backpack, Solflare...
               </p>
             </div>
             <div className="flex justify-center">
