@@ -137,7 +137,7 @@ export default function SendForm({ onSuccess }: SendFormProps) {
           Confirm & send ${formatUsdc(numAmount)}
         </button>
         <button onClick={() => setStep('form')} className="w-full text-koya-muted text-sm h-10">
-          â† Edit
+          ← Edit
         </button>
       </div>
     );
