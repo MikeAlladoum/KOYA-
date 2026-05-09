@@ -65,9 +65,11 @@ export default function HomePage() {
           </Link>
           <Link
             href="/receive"
-            className="flex items-center justify-center w-full text-koya-muted text-sm h-10 hover:text-koya-text transition-colors"
+            className="flex items-center justify-center gap-1.5 w-full text-koya-muted text-sm h-10 hover:text-koya-text transition-colors"
           >
-            Pick up cash →
+            <span>📲</span>
+            <span>I received a transfer</span>
+            <span className="text-koya-muted/50">→</span>
           </Link>
         </div>
 

@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import { useState, useEffect } from 'react';
-import { getAllOrders, updateOrderStatus, EscrowOrder } from '@/lib/escrow';
+import { getAllOrders, updateOrderStatus, EscrowOrder, createEscrowOrder } from '@/lib/escrow';
 import { EscrowStatus, SUPPORTED_COUNTRIES } from '@/lib/constants';
 import { formatUsdc } from '@/lib/solana';
 import { getMockAgentById } from '@/lib/mockData';
@@ -15,6 +15,22 @@ export default function AgentPanel() {
     setOrders(getAllOrders().sort((a, b) => b.createdAt - a.createdAt));
   };
 
+  const loadDemoOrder = () => {
+    const demo = createEscrowOrder({
+      txSignature: 'devnet_sim_demo1234',
+      sender: 'DemoWallet1111111111111111111111111111',
+      recipientPhone: '+228 90 12 34 56',
+      recipientCountry: 'TG',
+      amount: 50,
+      fee: 0.75,
+      agentId: 'agent_1',
+      payoutMethod: 'Cash',
+    });
+    reload();
+    // Pre-fill the code input for this demo order
+    setCodeInput((p) => ({ ...p, [demo.id]: demo.withdrawCode }));
+  };
+
   useEffect(() => {
     reload();
     const interval = setInterval(reload, 3000);
@@ -24,16 +40,16 @@ export default function AgentPanel() {
   const handleConfirm = async (order: EscrowOrder) => {
     const code = codeInput[order.id]?.trim();
     if (code !== order.withdrawCode) {
-      alert('Wrong pickup code â€” ask the beneficiary to check again.');
+      alert('Wrong pickup code — ask the beneficiary to check again.');
       return;
     }
     setProcessingId(order.id);
 
-    // Step 1: PENDING â†’ PROCESSING (immediate)
+    // Step 1: PENDING → PROCESSING (immediate)
     updateOrderStatus(order.id, EscrowStatus.PROCESSING);
     reload();
 
-    // Step 2: PROCESSING â†’ CLAIMED (after 2.5s animation)
+    // Step 2: PROCESSING → CLAIMED (after 2.5s animation)
     await new Promise((r) => setTimeout(r, 2500));
     updateOrderStatus(order.id, EscrowStatus.CLAIMED);
     setProcessingId(null);
@@ -54,12 +70,18 @@ export default function AgentPanel() {
       </div>
 
       {orders.length === 0 ? (
-        <div className="bg-koya-surface border border-koya-border rounded-2xl p-10 text-center space-y-3">
-          <p className="text-4xl">ðŸ“­</p>
+        <div className="bg-koya-surface border border-koya-border rounded-2xl p-10 text-center space-y-4">
+          <p className="text-4xl">&#128685;</p>
           <p className="text-koya-text font-semibold">No transfers yet</p>
           <p className="text-koya-muted text-sm">
-            Send money from the Send page â€” orders will appear here instantly
+            Send money from the Send page — orders will appear here instantly
           </p>
+          <button
+            onClick={loadDemoOrder}
+            className="mt-2 bg-koya-green/10 border border-koya-green/30 text-koya-green text-sm font-semibold rounded-xl px-4 py-2 hover:bg-koya-green/20 transition-all active:scale-95"
+          >
+            Load demo order
+          </button>
         </div>
       ) : (
         <div className="space-y-3">
@@ -94,10 +116,10 @@ function OrderCard({
 }) {
   const country = SUPPORTED_COUNTRIES.find((c) => c.code === order.recipientCountry);
   const agent = getMockAgentById(order.agentId ?? 'agent_1');
-  const payoutIcon = order.payoutMethod === 'TMoney' ? 'ðŸ“±' : 'ðŸ’µ';
+  const payoutIcon = order.payoutMethod === 'TMoney' ? '📱' : '💵';
   const payoutLabel = order.payoutMethod === 'TMoney' ? 'T-Money' : 'Cash';
 
-  // â”€â”€ CLAIMED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── CLAIMED ──────────────────────────────────────────────────────────────
   if (order.status === EscrowStatus.CLAIMED) {
     return (
       <div className="bg-koya-surface border border-koya-green/30 rounded-2xl p-4 space-y-2 animate-fade-in">
@@ -111,7 +133,7 @@ function OrderCard({
           <div className="text-right">
             <p className="text-koya-text font-black text-lg">${formatUsdc(order.amount)}</p>
             <span className="text-xs px-2 py-0.5 rounded-full border text-koya-green bg-koya-green/10 border-koya-green/20">
-              âœ“ Claimed
+              ✓ Claimed
             </span>
           </div>
         </div>
@@ -126,7 +148,7 @@ function OrderCard({
     );
   }
 
-  // â”€â”€ PROCESSING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── PROCESSING ────────────────────────────────────────────────────────────
   if (order.status === EscrowStatus.PROCESSING) {
     return (
       <div className="bg-koya-surface border border-blue-500/30 rounded-2xl p-4 space-y-3 animate-fade-in">
@@ -136,7 +158,7 @@ function OrderCard({
             <p className="text-koya-muted text-xs">${formatUsdc(order.amount)}</p>
           </div>
           <span className="text-xs px-2 py-0.5 rounded-full border text-blue-400 bg-blue-900/20 border-blue-500/20">
-            âš¡ Processing
+            ⚡ Processing
           </span>
         </div>
         <div className="bg-blue-900/10 border border-blue-500/20 rounded-xl p-3 flex items-center gap-3">
@@ -150,7 +172,7 @@ function OrderCard({
     );
   }
 
-  // â”€â”€ PENDING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── PENDING ───────────────────────────────────────────────────────────────â”€
   return (
     <div className="bg-koya-surface border border-koya-border rounded-2xl p-4 space-y-3">
       <div className="flex justify-between items-start">
@@ -163,7 +185,7 @@ function OrderCard({
         <div className="text-right space-y-1">
           <p className="text-koya-text font-black text-lg">${formatUsdc(order.amount)}</p>
           <span className="text-xs px-2 py-0.5 rounded-full border text-amber-400 bg-amber-900/20 border-amber-500/20">
-            â³ Pending
+            ⧖ Pending
           </span>
         </div>
       </div>
@@ -187,15 +209,20 @@ function OrderCard({
           maxLength={6}
           value={codeInput}
           onChange={(e) => onCodeChange(e.target.value.replace(/\D/g, ''))}
-          placeholder="â— â— â— â— â— â—"
+          placeholder="_ _ _ _ _ _"
           className="w-full bg-koya-bg border border-koya-border rounded-xl px-4 h-12 text-koya-text text-center text-2xl tracking-[0.5em] outline-none focus:border-koya-green transition-colors"
         />
+        {order.txSignature?.startsWith('devnet_sim') && (
+          <p className="text-koya-muted/60 text-center text-xs">
+            Demo code: <span className="text-koya-green font-mono font-semibold">{order.withdrawCode}</span>
+          </p>
+        )}
         <button
           onClick={onConfirm}
           disabled={codeInput.length !== 6 || isConfirming}
           className="w-full bg-koya-green text-black font-bold rounded-xl h-12 text-sm disabled:opacity-40 active:scale-[0.98] transition-all"
         >
-          {isConfirming ? 'Confirming...' : 'Confirm delivery â†’'}
+          {isConfirming ? 'Confirming...' : 'Confirm delivery →'}
         </button>
       </div>
     </div>

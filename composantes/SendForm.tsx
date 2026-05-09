@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -15,8 +15,8 @@ interface SendFormProps {
 const KOYA_ESCROW_WALLET = 'GkoyaEscrow1111111111111111111111111111111';
 
 const PAYOUT_OPTIONS: { method: PayoutMethod; icon: string; label: string; desc: string }[] = [
-  { method: 'Cash', icon: 'ðŸ’µ', label: 'Cash pickup', desc: 'Collect at agent location' },
-  { method: 'TMoney', icon: 'ðŸ“±', label: 'T-Money', desc: 'Mobile money to phone' },
+  { method: 'Cash', icon: '💵', label: 'Cash pickup', desc: 'Collect at agent location' },
+  { method: 'TMoney', icon: '📱', label: 'T-Money', desc: 'Mobile money to phone' },
 ];
 
 export default function SendForm({ onSuccess }: SendFormProps) {
@@ -52,7 +52,7 @@ export default function SendForm({ onSuccess }: SendFormProps) {
           sig = await sendTransaction(tx, connection);
           await connection.confirmTransaction(sig, 'confirmed');
         } catch {
-          // Devnet simulation â€” escrow recorded on-chain on mainnet launch
+          // Devnet simulation — escrow recorded on-chain on mainnet launch
           sig = 'devnet_sim_' + Math.random().toString(36).slice(2, 12);
         }
       } else {
@@ -98,7 +98,7 @@ export default function SendForm({ onSuccess }: SendFormProps) {
             <div key={d} className="w-2 h-2 bg-koya-green rounded-full animate-bounce" style={{ animationDelay: `${d}ms` }} />
           ))}
         </div>
-        <p className="text-koya-muted text-xs">Blockchain complexity â€” hidden from your family ðŸŒ</p>
+        <p className="text-koya-muted text-xs">Blockchain complexity — hidden from your family 🌍</p>
       </div>
     );
   }
@@ -112,13 +112,13 @@ export default function SendForm({ onSuccess }: SendFormProps) {
           <div className="bg-koya-bg rounded-xl p-4 text-center space-y-1">
             <p className="text-koya-muted text-sm">You send</p>
             <p className="text-koya-text text-4xl font-black">${formatUsdc(numAmount)}</p>
-            <p className="text-koya-muted text-xs">USDC Â· Solana Devnet</p>
+            <p className="text-koya-muted text-xs">USDC · Solana Devnet</p>
           </div>
           <div className="space-y-2.5 text-sm">
             <Row label="To" value={`${selectedCountry.flag} ${selectedCountry.prefix} ${phone}`} />
             <Row label="Agent" value={selectedAgent.name} />
-            <Row label="Payout" value={payoutMethod === 'TMoney' ? 'ðŸ“± T-Money' : 'ðŸ’µ Cash pickup'} />
-            <Row label={`Agent fee (${fmtBps(selectedAgent.fee_bps)})`} value={`âˆ’$${formatUsdc(agentFee)}`} danger />
+            <Row label="Payout" value={payoutMethod === 'TMoney' ? '📱 T-Money' : '💵 Cash pickup'} />
+            <Row label={`Agent fee (${fmtBps(selectedAgent.fee_bps)})`} value={`-$${formatUsdc(agentFee)}`} danger />
             <div className="border-t border-koya-border pt-2.5">
               <Row label="Family receives" value={`$${formatUsdc(received)}`} green bold />
             </div>
@@ -215,7 +215,7 @@ export default function SendForm({ onSuccess }: SendFormProps) {
                 <p className={`text-xs font-semibold ${agentId === a.id ? 'text-koya-green' : 'text-koya-muted'}`}>
                   {fmtBps(a.fee_bps)} fee
                 </p>
-                {agentId === a.id && <p className="text-koya-green text-xs">âœ“</p>}
+                {agentId === a.id && <p className="text-koya-green text-xs">✓</p>}
               </div>
             </button>
           ))}
@@ -249,7 +249,7 @@ export default function SendForm({ onSuccess }: SendFormProps) {
         disabled={!numAmount || !phone.trim() || numAmount <= 0}
         className="w-full bg-koya-green text-black font-bold rounded-2xl h-14 text-base disabled:opacity-40 active:scale-[0.98] transition-all"
       >
-        Continue â†’
+        Continue →
       </button>
     </div>
   );

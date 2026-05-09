@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { QRCodeSVG } from 'qrcode.react';
 import { EscrowOrder } from '@/lib/escrow';
@@ -15,11 +15,11 @@ export default function QRDisplay({ order }: { order: EscrowOrder }) {
     : `/receive?id=${order.id}&code=${order.withdrawCode}`;
 
   const whatsappMsg = encodeURIComponent(
-    `Your Koya transfer is ready ðŸŽ‰\n\n` +
+    `Your Koya transfer is ready 🎉\n\n` +
     `Amount: *$${formatUsdc(order.amount)} USDC*\n` +
     `Pickup code: *${order.withdrawCode}*\n\n` +
     `Open: ${webUrl}\n\n` +
-    `Go to ${agent?.name} â€” ${agent?.location} and show this code.`
+    `Go to ${agent?.name} — ${agent?.location} and show this code.`
   );
 
   const isDevnetSim = order.txSignature?.startsWith('devnet_sim');
@@ -30,13 +30,13 @@ export default function QRDisplay({ order }: { order: EscrowOrder }) {
       <div className="text-center space-y-2">
         <div className="flex justify-center">
           <div className="w-14 h-14 bg-koya-green/15 rounded-full flex items-center justify-center">
-            <span className="text-koya-green text-2xl font-bold">âœ“</span>
+            <span className="text-koya-green text-2xl font-bold">✓</span>
           </div>
         </div>
         <h3 className="text-koya-text font-bold text-lg">Transfer secured!</h3>
         <p className="text-koya-muted text-sm">
           <span className="text-koya-text font-semibold">${formatUsdc(order.amount)} USDC</span>
-          {' '}locked on Solana Â· {country?.flag} {country?.name}
+          {' '}locked on Solana · {country?.flag} {country?.name}
         </p>
         <div className="inline-flex items-center gap-1.5 bg-amber-900/20 border border-amber-500/20 rounded-full px-3 py-1">
           <div className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
@@ -71,7 +71,7 @@ export default function QRDisplay({ order }: { order: EscrowOrder }) {
       {/* Payout + Agent */}
       <div className="space-y-2">
         <div className="bg-koya-bg rounded-xl p-3 flex items-center gap-3">
-          <span className="text-2xl">{order.payoutMethod === 'TMoney' ? 'ðŸ“±' : 'ðŸ’µ'}</span>
+          <span className="text-2xl">{order.payoutMethod === 'TMoney' ? '📱' : '💵'}</span>
           <div>
             <p className="text-koya-text text-sm font-medium">
               {order.payoutMethod === 'TMoney' ? 'T-Money payout' : 'Cash pickup'}
@@ -81,7 +81,7 @@ export default function QRDisplay({ order }: { order: EscrowOrder }) {
         </div>
         {agent && (
           <div className="bg-koya-bg rounded-xl p-3 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-koya-green/10 flex items-center justify-center text-xl shrink-0">ðŸª</div>
+            <div className="w-10 h-10 rounded-xl bg-koya-green/10 flex items-center justify-center text-xl shrink-0">🏪</div>
             <div>
               <p className="text-koya-text text-sm font-medium">{agent.name}</p>
               <p className="text-koya-muted text-xs">{agent.location}</p>

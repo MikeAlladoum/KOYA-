@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ export default function SendPage() {
       <header className="flex items-center justify-between px-5 pt-6 pb-4">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center justify-center w-10 h-10 rounded-xl bg-koya-surface border border-koya-border text-koya-muted hover:text-koya-text transition-colors">
-            â†
+            ←
           </Link>
           <h1 className="text-koya-text font-bold text-lg">
             {completedOrder ? 'Transfer secured!' : 'Send money'}
@@ -34,11 +34,11 @@ export default function SendPage() {
       <div className="flex-1 px-5 pb-8 space-y-4 animate-slide-up">
         {!connected && !completedOrder && (
           <div className="bg-koya-surface border border-koya-border rounded-2xl p-6 text-center space-y-5">
-            <p className="text-5xl">ðŸ‘›</p>
+            <p className="text-5xl">&#127803;</p>
             <div className="space-y-1">
               <p className="text-koya-text font-bold text-lg">Connect your wallet</p>
               <p className="text-koya-muted text-sm">
-                Use any Solana wallet â€” Phantom, Backpack, Solflare...
+                Use any Solana wallet — Phantom, Backpack, Solflare...
               </p>
             </div>
             <div className="flex justify-center">
@@ -47,7 +47,7 @@ export default function SendPage() {
             <div className="grid grid-cols-3 gap-3 pt-1">
               {[
                 { v: '<1s', l: 'Settlement' },
-                { v: 'â‰¤2%', l: 'Max fees' },
+                { v: '≤2%', l: 'Max fees' },
                 { v: '6', l: 'Countries' },
               ].map((s) => (
                 <div key={s.l} className="bg-koya-bg rounded-xl p-3 text-center">
@@ -66,7 +66,7 @@ export default function SendPage() {
               href="/"
               className="flex items-center justify-center w-full bg-koya-surface border border-koya-border text-koya-text font-medium rounded-xl h-12 text-sm"
             >
-              â† Back home
+              ← Back home
             </Link>
           </>
         ) : connected ? (
