@@ -76,11 +76,16 @@ export function getAllOrders(): EscrowOrder[] {
   if (typeof window !== 'undefined') {
     const stored = localStorage.getItem('koya_orders');
     if (stored) {
-      const orders: EscrowOrder[] = JSON.parse(stored);
-      orders.forEach((o) => escrowStore.set(o.id, o));
-      return orders;
+      try {
+        const orders: EscrowOrder[] = JSON.parse(stored);
+        // Sync localStorage into in-memory store
+        orders.forEach((o) => escrowStore.set(o.id, o));
+      } catch {
+        // ignore parse errors
+      }
     }
   }
+  // Always return from in-memory store so newly created orders are included
   return Array.from(escrowStore.values());
 }
 

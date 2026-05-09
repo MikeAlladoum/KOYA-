@@ -16,7 +16,7 @@ export default function AgentPanel() {
   };
 
   const loadDemoOrder = () => {
-    const demo = createEscrowOrder({
+    createEscrowOrder({
       txSignature: 'devnet_sim_demo1234',
       sender: 'DemoWallet1111111111111111111111111111',
       recipientPhone: '+228 90 12 34 56',
@@ -27,8 +27,6 @@ export default function AgentPanel() {
       payoutMethod: 'Cash',
     });
     reload();
-    // Pre-fill the code input for this demo order
-    setCodeInput((p) => ({ ...p, [demo.id]: demo.withdrawCode }));
   };
 
   useEffect(() => {
@@ -212,11 +210,6 @@ function OrderCard({
           placeholder="_ _ _ _ _ _"
           className="w-full bg-koya-bg border border-koya-border rounded-xl px-4 h-12 text-koya-text text-center text-2xl tracking-[0.5em] outline-none focus:border-koya-green transition-colors"
         />
-        {order.txSignature?.startsWith('devnet_sim') && (
-          <p className="text-koya-muted/60 text-center text-xs">
-            Demo code: <span className="text-koya-green font-mono font-semibold">{order.withdrawCode}</span>
-          </p>
-        )}
         <button
           onClick={onConfirm}
           disabled={codeInput.length !== 6 || isConfirming}
