@@ -42,7 +42,7 @@ function ReceiveContent() {
     try {
       confirmOrder(order.id, order.agentId ?? 'agent_1');
       releaseOrder(order.id);
-      setOrder({ ...order, status: EscrowStatus.RELEASED });
+      setOrder({ ...order, status: EscrowStatus.CLAIMED });
       setStep('done');
     } finally {
       setLoading(false);

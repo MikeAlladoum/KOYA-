@@ -33,13 +33,15 @@ export const SUPPORTED_COUNTRIES = [
   { code: 'ML', name: 'Mali', flag: '🇲🇱', prefix: '+223' },
 ];
 
-// ─── Escrow status ───────────────────────────────────────────────────────────
+// ─── Transaction status ─────────────────────────────────────────────────────
 export enum EscrowStatus {
-  LOCKED = 'LOCKED',
-  CONFIRMED = 'CONFIRMED',
-  RELEASED = 'RELEASED',
-  CANCELLED = 'CANCELLED',
+  PENDING = 'Pending',
+  PROCESSING = 'Processing',
+  CLAIMED = 'Claimed',
 }
+
+// ─── Payout methods ──────────────────────────────────────────────────────────
+export type PayoutMethod = 'TMoney' | 'Cash';
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 export const ROUTES = {
